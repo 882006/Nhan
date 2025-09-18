@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Nguyễn's Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.1s, height 0.1s, opacity 0.3s;
+            mix-blend-mode: screen;
+        }
+
+        .custom-cursor.active {
+            width: 25px;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1038, #3a1a5c);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+            object-fit: cover;
+            transition: all 0.5s ease-out;
+        }
+
+        .global-view-counter {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 100;
+            background: rgba(89, 30, 70, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(220, 80, 140, 0.5);
+            box-shadow: 0 0 10px rgba(220, 80, 140, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .global-view-counter:hover {
+            background: rgba(220, 80, 140, 0.5);
+        }
+
+        .view-count {
+            font-weight: bold;
+            transition: all 0.3s;
+            color: #ff9ecb;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 15px;
+            z-index: 10;
+            position: relative;
+            background: rgba(60, 25, 60, 0.3);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(220, 80, 140, 0.4);
+            overflow: hidden;
+            margin-bottom: 80px;
+            padding-bottom: 0px;
+            transition: all 0.5s ease-out;
+        }
+
+        .profile-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .profile-left {
+            flex: 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-pic-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-bottom: 15px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 150, 200, 0.8);
+            box-shadow: 0 0 15px rgba(255, 150, 200, 0.6);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 150, 200, 0.8);
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(220, 80, 140, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(220, 80, 140, 0.6);
+        }
+
+        .status-badge:hover {
+            transform: scale(1.2);
+            background: rgba(220, 80, 140, 0.7);
+        }
+
+        .status-badge i {
+            color: #ff9ecb;
+            font-size: 1.2rem;
+        }
+
+        .name-container {
+            width: 100%;
+            background: rgba(220, 80, 140, 0.2);
+            border-radius: 12px;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 150, 200, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .name-container:hover {
+            background: rgba(220, 80, 140, 0.3);
+            box-shadow: 0 0 10px rgba(220, 80, 140, 0.4);
+        }
+
+        .name-container.active, .copyright.active, .contact-box.active {
+            animation: elementPulse 0.5s ease-out;
+        }
+
+        @keyframes elementPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 150, 200, 0.5);
+            }
+            50% { 
+                transform: scale(1.03);
+                box-shadow: 0 0 20px #ff9ecb, 0 0 30px #ff9ecb;
+            }
+        }
+
+        .username {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .username span {
+            display: inline-block;
+            opacity: 1;
+            margin: 0 1px;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .username span.active {
+            animation: charBlink 0.5s ease-out;
+        }
+
+        @keyframes charBlink {
+            0%, 100% { 
+                transform: translateY(0);
+                text-shadow: 0 0 5px rgba(255, 150, 200, 0.5);
+            }
+            50% { 
+                transform: translateY(-5px);
+                text-shadow: 0 0 20px #ff9ecb, 0 0 30px #ff9ecb;
+                font-weight: 800;
+                color: white;
+            }
+        }
+
+        .username span:nth-child(1) { color: #ff9ecb; }
+        .username span:nth-child(2) { color: #ffa6cf; }
+        .username span:nth-child(3) { color: #ffaed3; }
+        .username span:nth-child(4) { color: #ffb6d7; }
+        .username span:nth-child(5) { color: #ffbedb; }
+        .username span:nth-child(6) { color: #ffc6df; }
+        .username span:nth-child(7) { color: #ffcee3; }
+        .username span:nth-child(8) { color: #ffd6e7; }
+        .username span:nth-child(9) { color: #ffdeeb; }
+        .username span:nth-child(10) { color: #ffe6ef; }
+
+        .contact-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .contact-box {
+            width: 100%;
+            background: rgba(80, 30, 70, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .contact-box:hover {
+            background: rgba(100, 40, 80, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .contact-box .lh-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ff9ecb;
+        }
+
+        .contact-box .phone-number, .contact-box .email {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff9ecb;
+        }
+        
+        .bio {
+            font-size: 0.85rem;
+            color: #e0c0d0;
+            line-height: 1.8;
+            margin-top: 12px;
+            text-align: center;
+            font-style: italic;
+            padding: 0 8px;
+            font-weight: bold;
+        }
+
+        .profile-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card {
+            background: rgba(70, 30, 70, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(220, 80, 140, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #ff9ecb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title i {
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            width: 70px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .social-link:hover .social-icon {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover .social-icon::before {
+            left: 100%;
+        }
+
+        .discord .social-icon { background: rgba(114, 137, 218, 0.1); border-color: rgba(114, 137, 218, 0.3); }
+        .tiktok .social-icon { background: rgba(0, 242, 234, 0.1); border-color: rgba(0, 242, 234, 0.3); }
+        .facebook .social-icon { background: rgba(59, 89, 152, 0.1); border-color: rgba(59, 89, 152, 0.3); }
+
+        .social-link:hover .discord .social-icon { background: rgba(114, 137, 218, 0.2); }
+        .social-link:hover .tiktok .social-icon { background: rgba(0, 242, 234, 0.2); }
+        .social-link:hover .facebook .social-icon { background: rgba(59, 89, 152, 0.2); }
+
+        .social-label {
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+            color: #ffb6d7;
+        }
+
+        .playlists-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .playlist-card {
+            background: rgba(80, 30, 70, 0.3);
+            border-radius: 12px;
+            padding: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(220, 80, 140, 0.3);
+            height: 180px;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .soundcloud-player {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .playlist-card:hover .soundcloud-player {
+            box-shadow: 0 0 15px rgba(220, 80, 140, 0.7);
+        }
+
+        .main-footer {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(100px);
+            opacity: 0;
+        }
+
+        .show-footer {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .copyright {
+            display: inline-block;
+            background: rgba(89, 30, 70, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #e0c0d0;
+            font-size: 0.9rem;
+            border: 1px solid rgba(220, 80, 140, 0.5);
+            box-shadow: 0 0 10px rgba(220, 80, 140, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .copyright:hover {
+            background: rgba(220, 80, 140, 0.5);
+            color: white;
+            box-shadow: 0 0 15px rgba(220, 80, 140, 0.6);
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(89, 30, 70, 0.7);
+            border: 1px solid rgba(220, 80, 140, 0.5);
+            box-shadow: 0 0 15px rgba(220, 80, 140, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(220, 80, 140, 0.5);
+            transform: scale(1.1);
+        }
+
+        .music-control.playing {
+            animation: pulseMusic 2s infinite;
+        }
+
+        @keyframes pulseMusic {
+            0% { box-shadow: 0 0 0 0 rgba(220, 80, 140, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(220, 80, 140, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 80, 140, 0); }
+        }
+
+        .activation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .activation-message {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(220, 80, 140, 0.8);
+            background: linear-gradient(45deg, #ff9ecb, #ffa6cf, #ffaed3, #ffb6d7, #ffbedb, #ffc6df, #ffcee3, #ffd6e7, #ffdeeb, #ffe6ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(220, 80, 140, 0.8), 0 0 20px rgba(220, 80, 140, 0.6);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(220, 80, 140, 1), 0 0 30px rgba(220, 80, 140, 0.8), 0 0 40px rgba(220, 80, 140, 0.6);
+            }
+        }
+
+        .activation-hint {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(220, 80, 140, 0.5);
+            box-shadow: 0 0 20px rgba(220, 80, 140, 0.3);
+        }
+
+        .floating-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(220, 80, 140, 0.15);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+           100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .social-link:hover .social-icon::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(20, 20);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(50, 50);
+                opacity: 0;
+            }
+        }
+
+        @keyframes border-glow {
+            0% {
+                box-shadow: 0 0 5px rgba(220, 80, 140, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(220, 80, 140, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(220, 80, 140, 0.5);
+            }
+        }
+
+        .name-container, .contact-box {
+            animation: border-glow 3s infinite;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 150, 200, 0.3);
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, opacity 0.2s;
+        }
+
+        @media (max-width: 900px) {
+            .profile-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .profile-left {
+                flex: 0 0 auto;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+            }
+
+            .username {
+                font-size: 1.0rem;
+            }
+
+            .playlist-card {
+                height: 180px;
+            }
+
+            .global-view-counter {
+                top: 10px;
+                left: 10px;
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .music-control {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .activation-message {
+                font-size: 2rem;
+            }
+
+            .activation-hint {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+                margin-bottom: 70px;
+            }
+
+            .profile-pic-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .status-badge {
+                width: 35px;
+                height: 35px;
+            }
+
+            .username {
+                font-size: 1.0rem;
+            }
+
+            .bio {
+                font-size: 0.8rem;
+            }
+
+            .playlist-card {
+                height: 180px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+
+            .social-link {
+                width: 60px;
+            }
+
+            .global-view-counter {
+                top: 8px;
+                left: 8px;
+                font-size: 0.75rem;
+                padding: 5px 10px;
+            }
+
+            .copyright {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+
+            .music-control {
+                bottom: 12px;
+                right: 12px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .contact-box {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .activation-message {
+                font-size: 1.5rem;
+            }
+
+            .activation-hint {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video nền -->
+    <video class="video-background" id="bgVideo" autoplay loop muted>
+        <source src="mp3/lv_0_20250910232237.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Floating particles -->
+    <div class="animated-bg-elements" id="animatedBg"></div>
+    
+    <!-- Overlay kích hoạt -->
+    <div class="activation-overlay" id="activationOverlay">
+        <div class="activation-message">Hi there, welcome</div>
+        <div class="activation-hint">Click anywhere to enter</div>
+    </div>
+    
+    <!-- Custom cursor -->
+    <div class="custom-cursor" id="customCursor"></div>    
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Audio element for background music -->
+    <audio id="bgMusicAudio" loop style="display: none;">
+        <source src="mp3/Musicback.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Nút điều khiển nhạc -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-play"></i>
+    </div>
+
+    <!-- Số lượt xem -->
+    <div class="global-view-counter" id="globalViewCounter">
+        <i class="fas fa-eye"></i> Views: <span class="view-count">N/A</span>
+    </div>   
+
+    <!-- Container chính -->
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-left">
+                <div class="profile-pic-container">
+                    <img src="my pic/Avtprofile.jpg" alt="Ken Nguyễn" class="profile-pic" id="profilePic">
+                    <div class="status-badge" id="statusBadge">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <div class="name-container" id="nameContainer">
+                    <div class="username" id="fullName">
+                        <span>K</span><span>e</span><span>n</span><span> </span><span>N</span><span>g</span><span>u</span><span>y</span><span>ễ</span><span>n</span>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-box" id="phoneContact">
+                        <div class="lh-title">Phone:</div>
+                        <div class="phone-number">0364825617</div>
+                    </div>
+                    <div class="contact-box" id="emailContact">
+                        <div class="lh-title">Email:</div>
+                        <div class="email">kenvn510@gmail.com</div>
+                    </div>
+                </div>
+                
+                <div class="bio">
+                    Anime & Game Lover 🎮<br>
+                    Music Enthusiast 🎧<br>
+                    Kurumi Fan 🕰️<br>
+                    🎌❤️
+                </div>
+            </div>
+
+            <div class="profile-right">
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-link"></i> Connect With Me</h2>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@kengkeng1404?_t=ZS-8zcD4J3sLo1&_r=1" target="_blank" class="social-link tiktok">
+                            <div class="social-icon"><i class="fab fa-tiktok"></i></div>
+                            <span class="social-label">TikTok</span>
+                        </a>
+                        <a href="https://discord.gg/" target="_blank" class="social-link discord">
+                            <div class="social-icon"><i class="fab fa-discord"></i></div>
+                            <span class="social-label">Discord</span>
+                        </a>
+                        <a href="https://www.facebook.com/share/14MYVEoDjhT/" target="_blank" class="social-link facebook">
+                            <div class="social-icon"><i class="fab fa-facebook"></i></div>
+                            <span class="social-label">Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-music"></i> My Favorite Playlists</h2>
+                    <div class="playlists-container">
+                        <!-- 
+                            HƯỚNG DẪN SỬA LỖI SOUNDCLOUD:
+                            1. Vào SoundCloud, tìm playlist bạn muốn chia sẻ.
+                            2. Nhấn nút "Share" (Chia sẻ).
+                            3. Chọn tab "Embed" (Nhúng).
+                            4. Copy toàn bộ code trong đó và dán vào đây, HOẶC chỉ copy đường link trong phần src="..." của thẻ iframe.
+                            5. Link phải là link CÔNG KHAI (PUBLIC).
+                        -->
+
+                        <!-- Playlist 1 - ĐÃ SỬA LỖI (VÍ DỤ) -->
+                        <div class="playlist-card">
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1NAj6iNqGSwmxvMvzLmqxY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                            </iframe>
+                        </div>
+                        
+                        <!-- Playlist 2 - ĐÃ SỬA LỖI (VÍ DỤ) -->
+                        <div class="playlist-card">
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO44TgnF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="main-footer" id="mainFooter">
+        <div class="copyright" id="copyright">© 2025 by Nem. Created with github</div>
+    </div>
+    
+    <script>
+        // --- CÁC HÀM GỐC (KHÔNG THAY ĐỔI) ---
+        function createFloatingParticles() {
+            const container = document.getElementById('animatedBg');
+            if (!container) return;
+            const particleCount = 20;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('floating-particle');
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+                container.appendChild(particle);
+            }
+        }
+
+        function setupCustomCursor() {
+            const cursor = document.getElementById('customCursor');
+            const trail = document.getElementById('cursorTrail');
+            if (!cursor || !trail) return;
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+                setTimeout(() => {
+                    trail.style.left = `${e.clientX}px`;
+                    trail.style.top = `${e.clientY}px`;
+                }, 50);
+            });
+            document.addEventListener('mousedown', () => cursor.classList.add('active'));
+            document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+            const clickableElements = document.querySelectorAll('a, button, .profile-pic, .copyright, .social-icon, .name-container, .playlist-card, .music-control, .status-badge, .contact-box');
+            clickableElements.forEach(el => {
+                el.addEventListener('mouseover', () => cursor.classList.add('active'));
+                el.addEventListener('mouseout', () => cursor.classList.remove('active'));
+            });
+        }
+
+        function activateNameEffect() {
+            const nameChars = document.querySelectorAll('#fullName span');
+            if (nameChars.length === 0) return;
+            const triggerEffect = () => {
+                nameChars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('active');
+                        setTimeout(() => char.classList.remove('active'), 500);
+                    }, index * 100);
+                });
+            };
+            setTimeout(triggerEffect, 1000);
+            setInterval(triggerEffect, 5000);
+            const nameContainer = document.querySelector('.name-container');
+            if (nameContainer) {
+                nameContainer.addEventListener('mouseover', () => {
+                    nameChars.forEach((char, index) => {
+                        setTimeout(() => {
+                            char.classList.add('active');
+                            setTimeout(() => char.classList.remove('active'), 500);
+                        }, index * 50);
+                    });
+                });
+            }
+        }
+        
+        function createBubbleParticle(x, y) {
+            const particle = document.createElement('div');
+            Object.assign(particle.style, {
+                position: 'fixed', width: '6px', height: '6px', borderRadius: '50%',
+                backgroundColor: 'rgba(255, 150, 200, 0.8)', boxShadow: '0 0 6px rgba(255, 150, 200, 0.8)',
+                left: `${x}px`, top: `${y}px`, pointerEvents: 'none', zIndex: '9999', transform: 'translate(-50%, -50%)'
+            });
+            document.body.appendChild(particle);
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 1.2 + Math.random() * 2;
+            const lifetime = 500 + Math.random() * 500;
+            let startTime = Date.now();
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / lifetime;
+                if (progress >= 1) return particle.remove();
+                const posX = x + Math.cos(angle) * velocity * (elapsed / 20);
+                const posY = y + Math.sin(angle) * velocity * (elapsed / 20) - (progress * 20);
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                particle.style.opacity = 1 - progress;
+                particle.style.transform = `translate(-50%, -50%) scale(${1 - progress})`;
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function setupClickEffects() {
+            document.querySelectorAll('.copyright, .profile-pic, .status-badge, .contact-box, .name-container, .music-control').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    if (this.classList.contains('copyright') || this.classList.contains('contact-box') || this.classList.contains('name-container')) {
+                        this.classList.add('active');
+                        setTimeout(() => this.classList.remove('active'), 500);
+                    }
+                    for (let i = 0; i < 15; i++) createBubbleParticle(e.clientX, e.clientY);
+                    if (this.id === 'phoneContact') {
+                        navigator.clipboard.writeText('0364825617').then(() => alert('Số điện thoại đã được sao chép!'));
+                    }
+                    if (this.id === 'emailContact') {
+                        navigator.clipboard.writeText('kenvn510@gmail.com').then(() => alert('Email đã được sao chép!'));
+                    }
+                });
+            });
+            const copyrightEl = document.getElementById('copyright');
+            if (copyrightEl) {
+                copyrightEl.addEventListener('copy', e => e.preventDefault());
+            }
+        }
+        
+        function setupBackgroundMusic() {
+            const musicControl = document.getElementById('musicControl');
+            const audioPlayer = document.getElementById('bgMusicAudio');
+            const activationOverlay = document.getElementById('activationOverlay');
+            if (!musicControl || !audioPlayer || !activationOverlay) return;
+            let isPlaying = false;
+            let originalTitle = document.title;
+            audioPlayer.volume = 0.7;
+            activationOverlay.addEventListener('click', function() {
+                activationOverlay.style.display = 'none';
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicControl.classList.add('playing');
+                    document.title = '♪ ' + originalTitle;
+                }).catch(e => {
+                    console.log("Audio play was prevented by browser:", e);
+                    musicControl.innerHTML = '<i class="fas fa-play"></i>';
+                });
+            }, { once: true });
+            musicControl.addEventListener('click', function() {
+                if (isPlaying) {
+                    audioPlayer.pause();
+                } else {
+                    audioPlayer.play();
+                }
+                isPlaying = !isPlaying;
+                musicControl.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+                musicControl.classList.toggle('playing', isPlaying);
+                document.title = isPlaying ? '♪ ' + originalTitle : originalTitle;
+            });
+            audioPlayer.addEventListener('ended', () => audioPlayer.play());
+        }
+        
+        // --- CÁC HÀM ĐÃ SỬA LỖI ---
+
+        // Cập nhật lượt xem bằng API
+        function updateViewCount() {
+            const viewCountElement = document.querySelector('.view-count');
+            if (!viewCountElement) return;
+
+            const namespace = 'kennguyenprofile'; 
+            const key = 'visits'; 
+
+            fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+                .then(res => res.json())
+                .then(data => {
+                    viewCountElement.textContent = data.value;
+                })
+                .catch(error => {
+                    // Lỗi này thường xảy ra khi chạy file HTML trực tiếp từ máy tính.
+                    // Bộ đếm sẽ hoạt động bình thường khi website được đưa lên mạng.
+                    console.error('Không thể lấy lượt xem. Lỗi:', error);
+                    viewCountElement.textContent = 'N/A';
+                });
+        }
+        
+        // Xử lý hiển thị footer khi cuộn
+        function setupFooterScrollEffect() {
+            const mainFooter = document.getElementById('mainFooter');
+            if (!mainFooter) return;
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                let st = window.pageYOffset || document.documentElement.scrollTop;
+                if (st > lastScrollTop && st > 100) {
+                    mainFooter.classList.add('show-footer');
+                } else if (st < lastScrollTop) {
+                    mainFooter.classList.remove('show-footer');
+                }
+                lastScrollTop = st <= 0 ? 0 : st;
+            }, false);
+        }
+
+        // --- KHỞI TẠO ---
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingParticles();
+            setupCustomCursor();
+            activateNameEffect();
+            setupClickEffects();
+            setupBackgroundMusic();
+            updateViewCount(); 
+            setupFooterScrollEffect();
+        });
+    </script>
+</body>
+</html>
