@@ -22,7 +22,7 @@
             height: 12px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 10px rgba(100, 180, 255, 0.7), 0 0 20px rgba(100, 180, 255, 0.5);
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
@@ -33,12 +33,12 @@
         .custom-cursor.active {
             width: 25px;
             height: 25px;
-            background-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+            background-color: rgba(100, 180, 255, 0.5);
+            box-shadow: 0 0 15px rgba(100, 180, 255, 0.8), 0 0 30px rgba(100, 180, 255, 0.6);
         }
 
         body {
-            background: linear-gradient(135deg, #1a1038, #3a1a5c);
+            background: linear-gradient(135deg, #0a1028, #1a2a4c);
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -66,7 +66,7 @@
             top: 15px;
             left: 15px;
             z-index: 100;
-            background: rgba(89, 30, 70, 0.7);
+            background: rgba(30, 60, 89, 0.7);
             padding: 8px 15px;
             border-radius: 20px;
             display: flex;
@@ -74,19 +74,19 @@
             gap: 8px;
             font-size: 0.9rem;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(220, 80, 140, 0.5);
-            box-shadow: 0 0 10px rgba(220, 80, 140, 0.5);
+            border: 1px solid rgba(80, 140, 220, 0.5);
+            box-shadow: 0 0 10px rgba(80, 140, 220, 0.5);
             transition: all 0.3s ease;
         }
 
         .global-view-counter:hover {
-            background: rgba(220, 80, 140, 0.5);
+            background: rgba(80, 140, 220, 0.5);
         }
 
         .view-count {
             font-weight: bold;
             transition: all 0.3s;
-            color: #ff9ecb;
+            color: #9ecbff;
         }
 
         .container {
@@ -96,10 +96,10 @@
             padding: 15px;
             z-index: 10;
             position: relative;
-            background: rgba(60, 25, 60, 0.3);
+            background: rgba(25, 40, 60, 0.3);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 15px rgba(220, 80, 140, 0.4);
+            box-shadow: 0 0 15px rgba(80, 140, 220, 0.4);
             overflow: hidden;
             margin-bottom: 80px;
             padding-bottom: 0px;
@@ -134,15 +134,15 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid rgba(255, 150, 200, 0.8);
-            box-shadow: 0 0 15px rgba(255, 150, 200, 0.6);
+            border: 1px solid rgba(150, 200, 255, 0.8);
+            box-shadow: 0 0 15px rgba(150, 200, 255, 0.6);
             position: relative;
             transition: all 0.3s ease;
         }
 
         .profile-pic:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 150, 200, 0.8);
+            box-shadow: 0 0 25px rgba(150, 200, 255, 0.8);
         }
 
         .status-badge {
@@ -152,41 +152,41 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(220, 80, 140, 0.5);
+            background: rgba(80, 140, 220, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(220, 80, 140, 0.6);
+            box-shadow: 0 0 10px rgba(80, 140, 220, 0.6);
         }
 
         .status-badge:hover {
             transform: scale(1.2);
-            background: rgba(220, 80, 140, 0.7);
+            background: rgba(80, 140, 220, 0.7);
         }
 
         .status-badge i {
-            color: #ff9ecb;
+            color: #9ecbff;
             font-size: 1.2rem;
         }
 
         .name-container {
             width: 100%;
-            background: rgba(220, 80, 140, 0.2);
+            background: rgba(80, 140, 220, 0.2);
             border-radius: 12px;
             padding: 8px 10px;
             margin-bottom: 8px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 150, 200, 0.3);
+            border: 1px solid rgba(150, 200, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
 
         .name-container:hover {
-            background: rgba(220, 80, 140, 0.3);
-            box-shadow: 0 0 10px rgba(220, 80, 140, 0.4);
+            background: rgba(80, 140, 220, 0.3);
+            box-shadow: 0 0 10px rgba(80, 140, 220, 0.4);
         }
 
         .name-container.active, .copyright.active, .contact-box.active {
@@ -196,11 +196,11 @@
         @keyframes elementPulse {
             0%, 100% { 
                 transform: scale(1);
-                box-shadow: 0 0 5px rgba(255, 150, 200, 0.5);
+                box-shadow: 0 0 5px rgba(150, 200, 255, 0.5);
             }
             50% { 
                 transform: scale(1.03);
-                box-shadow: 0 0 20px #ff9ecb, 0 0 30px #ff9ecb;
+                box-shadow: 0 0 20px #9ecbff, 0 0 30px #9ecbff;
             }
         }
 
@@ -231,26 +231,26 @@
         @keyframes charBlink {
             0%, 100% { 
                 transform: translateY(0);
-                text-shadow: 0 0 5px rgba(255, 150, 200, 0.5);
+                text-shadow: 0 0 5px rgba(150, 200, 255, 0.5);
             }
             50% { 
                 transform: translateY(-5px);
-                text-shadow: 0 0 20px #ff9ecb, 0 0 30px #ff9ecb;
+                text-shadow: 0 0 20px #9ecbff, 0 0 30px #9ecbff;
                 font-weight: 800;
                 color: white;
             }
         }
 
-        .username span:nth-child(1) { color: #ff9ecb; }
-        .username span:nth-child(2) { color: #ffa6cf; }
-        .username span:nth-child(3) { color: #ffaed3; }
-        .username span:nth-child(4) { color: #ffb6d7; }
-        .username span:nth-child(5) { color: #ffbedb; }
-        .username span:nth-child(6) { color: #ffc6df; }
-        .username span:nth-child(7) { color: #ffcee3; }
-        .username span:nth-child(8) { color: #ffd6e7; }
-        .username span:nth-child(9) { color: #ffdeeb; }
-        .username span:nth-child(10) { color: #ffe6ef; }
+        .username span:nth-child(1) { color: #9ecbff; }
+        .username span:nth-child(2) { color: #a6cfff; }
+        .username span:nth-child(3) { color: #aed3ff; }
+        .username span:nth-child(4) { color: #b6d7ff; }
+        .username span:nth-child(5) { color: #bedbff; }
+        .username span:nth-child(6) { color: #c6dfff; }
+        .username span:nth-child(7) { color: #cee3ff; }
+        .username span:nth-child(8) { color: #d6e7ff; }
+        .username span:nth-child(9) { color: #deebff; }
+        .username span:nth-child(10) { color: #e6efff; }
 
         .contact-info {
             width: 100%;
@@ -262,7 +262,7 @@
 
         .contact-box {
             width: 100%;
-            background: rgba(80, 30, 70, 0.3);
+            background: rgba(30, 70, 80, 0.3);
             border-radius: 12px;
             padding: 12px;
             text-align: center;
@@ -275,7 +275,7 @@
         }
 
         .contact-box:hover {
-            background: rgba(100, 40, 80, 0.4);
+            background: rgba(40, 80, 100, 0.4);
             transform: translateY(-3px);
         }
 
@@ -283,18 +283,18 @@
             font-size: 1rem;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #ff9ecb;
+            color: #9ecbff;
         }
 
         .contact-box .phone-number, .contact-box .email {
             font-size: 1.1rem;
             font-weight: bold;
-            color: #ff9ecb;
+            color: #9ecbff;
         }
         
         .bio {
             font-size: 0.85rem;
-            color: #e0c0d0;
+            color: #c0d0e0;
             line-height: 1.8;
             margin-top: 12px;
             text-align: center;
@@ -311,11 +311,11 @@
         }
 
         .card {
-            background: rgba(70, 30, 70, 0.3);
+            background: rgba(30, 70, 70, 0.3);
             border-radius: 15px;
             padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid rgba(220, 80, 140, 0.3);
+            border: 1px solid rgba(80, 140, 220, 0.3);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
@@ -327,7 +327,7 @@
 
         .card-title {
             font-size: 1.3rem;
-            color: #ff9ecb;
+            color: #9ecbff;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -410,7 +410,7 @@
             font-size: 0.8rem;
             text-align: center;
             font-weight: bold;
-            color: #ffb6d7;
+            color: #b6d7ff;
         }
 
         .playlists-container {
@@ -421,13 +421,13 @@
         }
 
         .playlist-card {
-            background: rgba(80, 30, 70, 0.3);
+            background: rgba(30, 70, 80, 0.3);
             border-radius: 12px;
             padding: 8px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(220, 80, 140, 0.3);
+            border: 1px solid rgba(80, 140, 220, 0.3);
             height: 180px;
         }
 
@@ -445,7 +445,7 @@
         }
 
         .playlist-card:hover .soundcloud-player {
-            box-shadow: 0 0 15px rgba(220, 80, 140, 0.7);
+            box-shadow: 0 0 15px rgba(80, 140, 220, 0.7);
         }
 
         .main-footer {
@@ -467,13 +467,13 @@
 
         .copyright {
             display: inline-block;
-            background: rgba(89, 30, 70, 0.7);
+            background: rgba(30, 60, 89, 0.7);
             padding: 10px 20px;
             border-radius: 20px;
-            color: #e0c0d0;
+            color: #c0d0e0;
             font-size: 0.9rem;
-            border: 1px solid rgba(220, 80, 140, 0.5);
-            box-shadow: 0 0 10px rgba(220, 80, 140, 0.5);
+            border: 1px solid rgba(80, 140, 220, 0.5);
+            box-shadow: 0 0 10px rgba(80, 140, 220, 0.5);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -481,9 +481,9 @@
         }
 
         .copyright:hover {
-            background: rgba(220, 80, 140, 0.5);
+            background: rgba(80, 140, 220, 0.5);
             color: white;
-            box-shadow: 0 0 15px rgba(220, 80, 140, 0.6);
+            box-shadow: 0 0 15px rgba(80, 140, 220, 0.6);
         }
 
         .music-control {
@@ -493,9 +493,9 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: rgba(89, 30, 70, 0.7);
-            border: 1px solid rgba(220, 80, 140, 0.5);
-            box-shadow: 0 0 15px rgba(220, 80, 140, 0.5);
+            background: rgba(30, 60, 89, 0.7);
+            border: 1px solid rgba(80, 140, 220, 0.5);
+            box-shadow: 0 0 15px rgba(80, 140, 220, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -507,7 +507,7 @@
         }
 
         .music-control:hover {
-            background: rgba(220, 80, 140, 0.5);
+            background: rgba(80, 140, 220, 0.5);
             transform: scale(1.1);
         }
 
@@ -516,9 +516,9 @@
         }
 
         @keyframes pulseMusic {
-            0% { box-shadow: 0 0 0 0 rgba(220, 80, 140, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(220, 80, 140, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(220, 80, 140, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(80, 140, 220, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(80, 140, 220, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(80, 140, 220, 0); }
         }
 
         .activation-overlay {
@@ -544,8 +544,8 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 30px;
-            text-shadow: 0 0 15px rgba(220, 80, 140, 0.8);
-            background: linear-gradient(45deg, #ff9ecb, #ffa6cf, #ffaed3, #ffb6d7, #ffbedb, #ffc6df, #ffcee3, #ffd6e7, #ffdeeb, #ffe6ef);
+            text-shadow: 0 0 15px rgba(80, 140, 220, 0.8);
+            background: linear-gradient(45deg, #9ecbff, #a6cfff, #aed3ff, #b6d7ff, #bedbff, #c6dfff, #cee3ff, #d6e7ff, #deebff, #e6efff);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -556,10 +556,10 @@
 
         @keyframes glow {
             from {
-                text-shadow: 0 0 10px rgba(220, 80, 140, 0.8), 0 0 20px rgba(220, 80, 140, 0.6);
+                text-shadow: 0 0 10px rgba(80, 140, 220, 0.8), 0 0 20px rgba(80, 140, 220, 0.6);
             }
             to {
-                text-shadow: 0 0 20px rgba(220, 80, 140, 1), 0 0 30px rgba(220, 80, 140, 0.8), 0 0 40px rgba(220, 80, 140, 0.6);
+                text-shadow: 0 0 20px rgba(80, 140, 220, 1), 0 0 30px rgba(80, 140, 220, 0.8), 0 0 40px rgba(80, 140, 220, 0.6);
             }
         }
 
@@ -570,14 +570,14 @@
             background: rgba(0, 0, 0, 0.4);
             padding: 15px 25px;
             border-radius: 15px;
-            border: 2px solid rgba(220, 80, 140, 0.5);
-            box-shadow: 0 0 20px rgba(220, 80, 140, 0.3);
+            border: 2px solid rgba(80, 140, 220, 0.5);
+            box-shadow: 0 0 20px rgba(80, 140, 220, 0.3);
         }
 
         .floating-particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(220, 80, 140, 0.15);
+            background: rgba(80, 140, 220, 0.15);
             animation: float 15s infinite linear;
         }
 
@@ -630,13 +630,13 @@
 
         @keyframes border-glow {
             0% {
-                box-shadow: 0 0 5px rgba(220, 80, 140, 0.5);
+                box-shadow: 0 0 5px rgba(80, 140, 220, 0.5);
             }
             50% {
-                box-shadow: 0 0 20px rgba(220, 80, 140, 0.8);
+                box-shadow: 0 0 20px rgba(80, 140, 220, 0.8);
             }
             100% {
-                box-shadow: 0 0 5px rgba(220, 80, 140, 0.5);
+                box-shadow: 0 0 5px rgba(80, 140, 220, 0.5);
             }
         }
 
@@ -649,7 +649,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: rgba(255, 150, 200, 0.3);
+            background: rgba(150, 200, 255, 0.3);
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
@@ -859,7 +859,7 @@
                 <div class="card">
                     <h2 class="card-title"><i class="fas fa-link"></i> Connect With Me</h2>
                     <div class="social-links">
-                        <a href="https://www.tiktok.com/@kengkeng1404?_t=ZS-8zcD4J3sLo1&_r=1" target="_blank" class="social-link tiktok">
+                        <a href="https://www.tiktok.com/@hznhanx" target="_blank" class="social-link tiktok">
                             <div class="social-icon"><i class="fab fa-tiktok"></i></div>
                             <span class="social-label">TikTok</span>
                         </a>
@@ -867,7 +867,7 @@
                             <div class="social-icon"><i class="fab fa-discord"></i></div>
                             <span class="social-label">Discord</span>
                         </a>
-                        <a href="https://www.facebook.com/share/14MYVEoDjhT/" target="_blank" class="social-link facebook">
+                        <a href="https://www.facebook.com/tran.thien.nhan.251231/" target="_blank" class="social-link facebook">
                             <div class="social-icon"><i class="fab fa-facebook"></i></div>
                             <span class="social-label">Facebook</span>
                         </a>
@@ -877,25 +877,14 @@
                 <div class="card">
                     <h2 class="card-title"><i class="fas fa-music"></i> My Favorite Playlists</h2>
                     <div class="playlists-container">
-                        <!-- 
-                            HƯỚNG DẪN SỬA LỖI SOUNDCLOUD:
-                            1. Vào SoundCloud, tìm playlist bạn muốn chia sẻ.
-                            2. Nhấn nút "Share" (Chia sẻ).
-                            3. Chọn tab "Embed" (Nhúng).
-                            4. Copy toàn bộ code trong đó và dán vào đây, HOẶC chỉ copy đường link trong phần src="..." của thẻ iframe.
-                            5. Link phải là link CÔNG KHAI (PUBLIC).
-                        -->
-
-                        <!-- Playlist 1 - ĐÃ SỬA LỖI (VÍ DỤ) -->
+                        <!-- Playlist 1 -->
                         <div class="playlist-card">
-                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1NAj6iNqGSwmxvMvzLmqxY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                            </iframe>
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/21x9E6DMIqnT8G4Yn2Bw9w?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         </div>
                         
-                        <!-- Playlist 2 - ĐÃ SỬA LỖI (VÍ DỤ) -->
+                        <!-- Playlist 2 -->
                         <div class="playlist-card">
-                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO44TgnF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                            </iframe>
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/35l1nLPKvtOxoYCvxRZUAN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
@@ -979,7 +968,7 @@
             const particle = document.createElement('div');
             Object.assign(particle.style, {
                 position: 'fixed', width: '6px', height: '6px', borderRadius: '50%',
-                backgroundColor: 'rgba(255, 150, 200, 0.8)', boxShadow: '0 0 6px rgba(255, 150, 200, 0.8)',
+                backgroundColor: 'rgba(150, 200, 255, 0.8)', boxShadow: '0 0 6px rgba(150, 200, 255, 0.8)',
                 left: `${x}px`, top: `${y}px`, pointerEvents: 'none', zIndex: '9999', transform: 'translate(-50%, -50%)'
             });
             document.body.appendChild(particle);
