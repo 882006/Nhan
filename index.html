@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ken Nguyễn's Profile</title>
+    <title>Nhân's Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -246,11 +246,6 @@
         .username span:nth-child(3) { color: #aed3ff; }
         .username span:nth-child(4) { color: #b6d7ff; }
         .username span:nth-child(5) { color: #bedbff; }
-        .username span:nth-child(6) { color: #c6dfff; }
-        .username span:nth-child(7) { color: #cee3ff; }
-        .username span:nth-child(8) { color: #d6e7ff; }
-        .username span:nth-child(9) { color: #deebff; }
-        .username span:nth-child(10) { color: #e6efff; }
 
         .contact-info {
             width: 100%;
@@ -825,14 +820,14 @@
         <div class="profile-header">
             <div class="profile-left">
                 <div class="profile-pic-container">
-                    <img src="my pic/Avtprofile.jpg" alt="Ken Nguyễn" class="profile-pic" id="profilePic">
+                    <img src="mypic/image1311.png" alt="Nhân" class="profile-pic" id="profilePic">
                     <div class="status-badge" id="statusBadge">
                         <i class="fas fa-clock"></i>
                     </div>
                 </div>
                 <div class="name-container" id="nameContainer">
                     <div class="username" id="fullName">
-                        <span>K</span><span>e</span><span>n</span><span> </span><span>N</span><span>g</span><span>u</span><span>y</span><span>ễ</span><span>n</span>
+                        <span>N</span><span>h</span><span>â</span><span>n</span>
                     </div>
                 </div>
                 
@@ -1054,7 +1049,7 @@
             const viewCountElement = document.querySelector('.view-count');
             if (!viewCountElement) return;
 
-            const namespace = 'kennguyenprofile'; 
+            const namespace = 'nhansprofile'; 
             const key = 'visits'; 
 
             fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
